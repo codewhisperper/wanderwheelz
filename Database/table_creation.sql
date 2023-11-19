@@ -47,11 +47,7 @@ CREATE TABLE admin (
     username VARCHAR(255),
     password VARCHAR(255), -- Assuming you store hashed passwords
     name VARCHAR(255),
-    rentee_id INT,
-    renter_id INT,
     contact VARCHAR(15),
-    FOREIGN KEY (rentee_id) REFERENCES rentee(rentee_id),
-    FOREIGN KEY (renter_id) REFERENCES renter(renter_id)
 );
 
 -- Creating ride table
@@ -59,7 +55,8 @@ CREATE TABLE ride (
     ride_id INT AUTO_INCREMENT PRIMARY KEY,
     renter_id INT,
     ride_verification_id INT,
-    availability BOOLEAN,
+    availability_from DATETIME,
+	availability_to DATETIME,
     model VARCHAR(255),
     number_plate VARCHAR(20),
     rate DECIMAL(5, 2),
@@ -84,13 +81,11 @@ CREATE TABLE rental (
 -- Creating ride_review table
 CREATE TABLE ride_review (
     review_id INT AUTO_INCREMENT PRIMARY KEY,
-    rentee_id INT,
-    renter_id INT,
+	ride_id INT,
     date DATETIME,
-    car_score INT,
+    car_score DECIMAL(5, 2),
     rate DECIMAL(5, 2), -- Adjusted precision and scale
     driver_score DECIMAL(5, 2),
     description TEXT,
-    FOREIGN KEY (rentee_id) REFERENCES rentee(rentee_id),
-    FOREIGN KEY (renter_id) REFERENCES renter(renter_id)
+    FOREIGN KEY (ride_id) REFERENCES ride(ride_id),
 );
