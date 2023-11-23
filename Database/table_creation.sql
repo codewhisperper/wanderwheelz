@@ -66,6 +66,7 @@ CREATE TABLE ride (
     description TEXT,
     city VARCHAR(255),
     Car_image VARCHAR(255),
+    is_available BOOLEAN DEFAULT true;
     FOREIGN KEY (renter_id) REFERENCES renter(renter_id)
 );
 
