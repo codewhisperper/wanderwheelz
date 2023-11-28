@@ -1,27 +1,142 @@
 {% load static %}
 <html>
+  <head>
+    <title>Wander Wheelz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/w3.css' %}">
+  </head>
 <head>
   <title>Wander Wheelz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="{% static 'css/w3.css' %}">
 </head>
 <body>
-  <div class="w3-container w3-teal">
-    <h1 class="w3-center">Wander Wheelz<h1>
+  <style>
+    .left-container {
+    width: 70%;
+    height: 100%;
+
+    align-self: center;
+    align-items: center;
+    background-image: url('https://unblast.com/wp-content/uploads/2020/09/Car-Rent-Vector-Illustration-1024x768.jpg');
+    background-color: rgba(255,255,255,0.9);
+    background-size: cover;
+  background-position: center;
+  }
+    body {
+      font-family: 'Pathway Extreme', sans-serif;
+      background-color:#1A2129;
+  margin: 0px;
+  display: flex;
+  align-items: flex-start; /* Align items to the start (top) of the container */
+  justify-content: flex-end; /* Align items to the end (right) of the container */
+  height: 100vh;
+   /* Adjust the path to your image */
+  background-size: cover; /* Adjust this property based on your design */
+    }
+    .items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px; /* Adjust the value based on your preference */
+  margin-top: 40%;
+  border: 2px solid #63A8B8;;
+  padding: 20PX;
+  box-shadow: 0 0 5px #55597C;
+  }
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 100%;
+    align-self: center;
+    align-items: center;
+    background-color: #FFFFFF;
+    
+    text-align: center;
+    font-size: 14px;
+    line-height: 5px;
+    letter-spacing: 0.3px;
+    margin: auto;
+    position: relative;
+    
+  }
+    .background{
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+.background .shape{
+    height: 100px;
+    width: 100px;
+    position: absolute;   
+    border-radius: 50%;
+}
+      .header {
+      color: #19171A;
+      padding: 20px 0;
+      border-radius: 8px 8px 0 0;
+    }
+
+    .header h1 {
+      margin: 10px;
+    }
+
+    .welcome-bar {
+      
+      color: #19171A;
+      padding: 10px 0;
+      font-size: 15px;
+      border-radius: 0 0 8px 8px;
+    }
+    
+    .login-button{
+    
+    
+  padding: 10px 20px; /* Adjust the padding for the button size */
+  font-size: 16px;
+  border: none;
+  border-radius: 8px; /* Set border-radius to 8px for a slightly rounded rectangle */
+  cursor: pointer;
+  margin-top: 15px;  
+    }
+    .login-button input {
+      
+      background-color: #FFFFFF;
+  width: 160px; /* Set the desired width */
+  height: 50px; /* Set the desired height */
+  border-color: #63A8B8;
+  box-shadow: 0 0 3px #55597C;
+  border-radius: 8PX;
+  
+}
+</style>
+<div class = "left-container">
+
+
+</div>
+<div class="container">
+  <div class = "items">
+  <div class="header">
+    <h1>Wander Wheelz</h1>
   </div>
-  <div class="w3-center w3-bar w3-black w3-large"> Welcome to Wander Wheelz</div><br><br>
-  <div class="w3-display-container" style="height:400px;">
-    <div class="w3-display-middle">
+  <div class="welcome-bar"> Welcome to Wander Wheelz</div>
 <!--        Fix the form to update the url for the customer login page-->
-  <form class="w3-container w3-center" action="/ww_customer/customer_login/" mehtod="POST">{% csrf_token %}
-    <input class="w3-indigo w3-btn w3-xxlarge w3-padding-32" type="submit" value="Customer Login">
+  <form class="login-button" action="/ww_customer/customer_login/" mehtod="POST">{% csrf_token %}
+    <input class="w3-indigo w3-btn w3-xxlarge" type="submit" id = "login" value="Customer Login">
   </form>
-<br><br><br>
+
 <!--        Fix the form to update the url for the dealer login page-->
-  <form class="w3-container w3-center" action="/car_dealer_portal/login/" method="POST">{% csrf_token %}
-    <input class="w3-btn w3-indigo w3-xxlarge w3-padding-32" type="submit" value="Car Dealer Login">
-  <form>
+  <form class="login-button" action="/car_dealer_portal/login/" method="POST">{% csrf_token %}
+    <input class="w3-btn w3-indigo w3-xxlarge" type="submit" id = "login" value="Car Dealer Login">
+  </form>
   </div>
+</div>
 </div>
 <body>
 </html>
