@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'ww_admin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'wanderwheelz.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['ww_home/Templates', 'ww_customer/Templates'],
+        'DIRS': ['ww_home/Templates', 'ww_customer/Templates','ww_admin/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
