@@ -1,0 +1,25 @@
+{% extends 'customer/customer_base.html' %}
+{% block content %}
+<div class="w3-bar w3-large w3-black">
+  <div class="w3-bar-item w3-left w3-black">Customer Portal: {{request.session.user}}</div>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/ww_customer/home/">home</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/ww_customer/customer_logout/">Logout</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/ww_customer/customer_manage/">Manage</a>
+</div>
+
+<div class="w3-display-container" style="height:300px;">
+  <div class="w3-display-middle">
+
+<form class="w3-container" action="/ww_customer/search_results/" method="post">
+  {% csrf_token %}
+  <br><br>
+  <lable>Enter City Name:</lable> <input class="w3-input" type="text" name="city" required><br><br>
+  <lable>From:</lable> <input class="w3-input" type="datetime-local" name="from"><br><br>
+  <lable>To:</lable> <input class="w3-input" type="datetime-local" name="to"><br><br>
+  <input class="w3-btn w3-green" type="submit" value="Search Car">
+</form>
+
+</div>
+</div>
+
+{% endblock %}

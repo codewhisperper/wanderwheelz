@@ -1,0 +1,30 @@
+{% extends 'customer/customer_base.html' %}
+{% block content %}
+<div class="w3-bar">
+    <a class="w3-bar-item w3-btn w3-teal w3-right" href="/ww_customer/home/">home</a>
+
+</div>
+
+<div class="w3-display-container"  style="height:1000px;">
+<div class="w3-display-middle">
+{% for message in messages%}
+        <div class = "alert-{{message.tags}} alert.dissmissible fade show" role = "alert">
+        <strong>Message:</strong>{{message}}
+        <button type ="submit" class = "close" data-dismiss = "alert" aria-label = "Close">
+        <span aria-hidden= "true">&times;</span>
+        </button>
+        </div>
+    {% endfor %}
+ <b> <h2>{{request.session.user}}'s Verification Information</h2></b>
+
+<form class="w3-container" action="/ww_customer/verification/" method="POST">{% csrf_token %}
+  <lable>Driver's License : </lable><input class="w3-input" type="text" name="dl"><br><br>
+  <lable>Identification : </lable><input class="w3-input" type="text" name="ident"><br><br>
+  <lable>Insurance : </lable><input class="w3-input" type="text" name="insurance"><br><br>
+  <input type="hidden" name="id" value="{{request.session.user_id}}">
+  <input class="w3-btn w3-teal" type="submit" value="Verify"><br><br>
+</form>
+
+</div>
+</div>
+{% endblock %}

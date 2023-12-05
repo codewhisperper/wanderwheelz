@@ -1,0 +1,39 @@
+{% extends 'customer/customer_base.html' %}
+{% block content %}
+
+<div>{{request.session.user_id}}</div>
+<div class="w3-bar w3-large w3-black">
+  <div class="w3-bar-item w3-left w3-black">Customer Portal: {{request.session.user}}</div>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/ww_customer/home/">home</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/ww_customer/customer_logout/">Logout</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/ww_customer/customer_manage/">Manage</a>
+  <a class="w3-ber-item w3-btn w3-teal w3-right" href="/ww_customer/search/?param_name={{ request }}">Search Cars</a>
+</div>
+
+<div class="w3-containet w3-center" style="padding:100px  ">
+  <b>Car : {{car.name}}</b><br><br>
+  <b>Price : ${{car.rate}} per day</b><br><br>
+  <b>From : {% if request.session.search.from%}
+              {{ request.session.search.from }}
+            {% else %}
+              {{ car.from }}
+            {% endif %}</b><br><br>
+  <b>To : {% if request.session.search.to %}
+              {{ request.session.search.to }}
+            {% else %}
+              {{ car.from }}
+            {% endif %}</b><br><br>
+<form class="w3-container" action="/ww_customer/book/" method="post">
+  {% csrf_token %}
+  <label>Update From:</label>
+  <input class="w3-input" type="datetime-local" name="from"
+         id="from"><br><br>
+  <label>Update To:</label> <input class="w3-input" type="datetime-local" name="to"><br><br>
+  <label>Booking Name:</label> <input class="w3-input" type="text" name="bname"><br><br>
+  <input class="w3-btn w3-teal" type="submit"  value="Confirm My Order"><br><br>
+  <input type="hidden" value="{{car.id}}" name="id">
+    <input type="hidden" value="{{request.session.user_id}}" name="user_id">
+  <br><br>
+</form>
+</div>
+{% endblock %}

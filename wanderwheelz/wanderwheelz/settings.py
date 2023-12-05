@@ -56,7 +56,7 @@ ROOT_URLCONF = 'wanderwheelz.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['ww_home/Templates', 'ww_customer/Templates'],
+        'DIRS': ['ww_home/Templates', 'ww_customer/Templates', 'ww_dealer/Templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
