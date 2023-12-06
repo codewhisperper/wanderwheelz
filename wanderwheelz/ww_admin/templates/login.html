@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
+{% block title %}Admin Login Page{% endblock %}
+{% block page_title %}Admin Login Page{% endblock %}
+
 {% block content %}
-  <h2>Admin Login</h2>
-  <form method="post" action="/ww_admin/login">
+  <form method="post" action="{% url 'ww_admin:admin_dashboard' %}">
     {% csrf_token %}
-    {{ form.as_p }}
-    <lable>Username :</lable> <input class="w3-input" type="text" name="username"><br><br>
-  <lable>Password :</lable> <input class="w3-input" type="password" name="password"><br><br>
-  
+    <label>Username:</label> <input class="w3-input" type="text" name="username"><br><br>
+    <label>Password:</label> <input class="w3-input" type="password" name="password"><br><br>
     <button type="submit">Login</button>
   </form>
 {% endblock %}

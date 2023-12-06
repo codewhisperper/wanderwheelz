@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Your Car Rental System</title>
+  <title>{% block title %}Your Car Rental System{% endblock %}</title>
   {% load static %}
   {# Assuming you are using chartjs template tag, adjust this line accordingly #}
 </head>
 <body>
 
+<h1>{% block page_title %}{% endblock %}</h1>
 {% block content %}{% endblock %}
-
-<a href="ww_admin/">Admin Login</a>
 
 </body>
 </html>

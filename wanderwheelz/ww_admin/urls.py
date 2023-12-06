@@ -1,12 +1,13 @@
 # urls.py
 from django.urls import path
-from .views import admin_login
-
+from .views import admin_login,auth,admin_dashboard
 app_name = 'ww_admin'
 
 urlpatterns = [
-    #path('login/', auth ),
-    path('',admin_login)
-    # path('admin/dashboard/', admin_dashboard, name='admin_dashboard'),
-    # Add other URLs as needed
+    path('',admin_login),
+    path('login/', admin_login),  
+    path('auth/', auth, name='admin_auth'),
+    path('dashboard/', admin_dashboard, name='admin_dashboard'),
+    
 ]
+    
