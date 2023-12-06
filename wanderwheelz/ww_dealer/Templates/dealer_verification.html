@@ -1,0 +1,26 @@
+{% extends 'dealer_base.html' %}
+
+{% block content %}
+{%load static %}
+<h1>verification</h1>
+<form method="POST" action="/ww_dealer/verification_form/">
+    {% csrf_token %}
+    
+    <label for="identification">Identification:</label>
+    <input type="text" name="identification" required><br>
+
+    <label for="license">License:</label>
+    <input type="text" name="license" required><br>
+
+    <label for="insurance">Insurance:</label>
+    <input type="text" name="insurance" required><br>
+
+    <label for="registration">Registration:</label>
+    <input type="text" name="registration" required><br>
+
+    <input type="submit" value="Submit Verification">
+</form>
+
+{% endblock %}
+
+

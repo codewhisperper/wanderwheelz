@@ -7,15 +7,15 @@ def customer_login(request):
 
 
 def auth(request):
-    username = request.POST['username']
+    email = request.POST['username']
     password = request.POST['password']
 
     conn = cursor_init()
     with conn.connect() as db_conn:
-        query = "SELECT password FROM rentee WHERE username = :username"
-        results = db_conn.execute(sqlalchemy.text(query), {"username": username}).fetchall()
+        query = "SELECT password FROM rentee WHERE email = :email"
+        results = db_conn.execute(sqlalchemy.text(query), {"email": email}).fetchall()
 
-    db_pass = results[0][0]
+    db_pass, first_name, user_id = (results[0][0], results[0][1], results[0][2]) if results else (None, None, None)
 
     if db_pass == password:
         return render(request, 'customer/customer_home.html')
