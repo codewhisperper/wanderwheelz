@@ -1,0 +1,35 @@
+--Admin_Documentation--
+
+admin_login(request)
+
+Renders the admin login page.
+
+Parameters:
+
+request (HttpRequest): The HTTP request object.
+Returns:
+
+HttpResponse: Rendered login.html template.
+auth(request)
+
+Handles user authentication.
+
+Parameters:
+
+request (HttpRequest): The HTTP request object.
+Returns:
+
+HttpResponse: Redirects to admin_dashboard on successful authentication.
+Renders login_fail.html with an error message on authentication failure.
+admin_dashboard(request)
+
+Renders the admin dashboard page with data fetched from the ride_review table.
+
+Parameters:
+
+request (HttpRequest): The HTTP request object.
+Returns:
+
+HttpResponse: Rendered dashboard.html template with ride review data.
+Note: The code assumes the existence of a cursor_init function from the wanderwheelz.db module, which initializes a database connection. Additionally, SQLAlchemy is used for executing SQL queries.
+
