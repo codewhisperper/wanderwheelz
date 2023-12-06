@@ -1,7 +1,6 @@
 {% extends 'customer/customer_base.html' %}
 {% block content %}
 
-<div>{{request.session.user_id}}</div>
 <div class="w3-bar w3-large w3-black">
   <div class="w3-bar-item w3-left w3-black">Customer Portal: {{request.session.user}}</div>
   <a class="w3-bar-item w3-btn w3-teal w3-right" href="/ww_customer/home/">home</a>

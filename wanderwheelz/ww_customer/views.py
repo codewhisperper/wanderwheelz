@@ -148,6 +148,11 @@ def confirm(request):
                 'description': result[9],
                 'from': result[10],
                 'to': result[11]}
+            car_book = {
+                'name': result[3],
+                'rate': int(result[5])
+            }
+            request.session['car'] = car_book
             return render(request, 'customer/booking_confirmation.html', {'car': car})
     except:
         return render(request, 'customer/customer_login.html')
@@ -164,14 +169,24 @@ def book(request):
             id = {'id': id}
 
             conn = cursor_init()
-            with conn.connect() as db_conn:
+            with (conn.connect() as db_conn):
                 query = "UPDATE ride SET is_available = False WHERE ride_id = :id"
                 db_conn.execute(sqlalchemy.text(query), id)
 
-                query = "INSERT INTO rental (ride_id, rentee_id, rental_name, date) VALUES (:ride_id, :rentee_id, :name, :date)"
+                query = "SELECT renter_id from ride WHERE ride_id = :id"
+                res = db_conn.execute(sqlalchemy.text(query), id).fetchone()
+                renter_id = res[0]
+
+                query = "SELECT phone FROM renter WHERE renter_id = :id"
+                res = db_conn.execute(sqlalchemy.text(query), {'id': renter_id}).fetchall()
+                phone = res[0][0]
+                booking['phone'] = phone
+
+                query = ("INSERT INTO rental (ride_id, rentee_id, rental_name, date) "
+                         "VALUES (:ride_id, :rentee_id, :name, :date)")
                 db_conn.execute(sqlalchemy.text(query), booking)
                 db_conn.commit()
-            return render(request, 'customer/booking_confirmed.html')
+            return render(request, 'customer/booking_confirmed.html', {'booking': booking})
     except Exception as err:
         print(err)
         return render(request, 'customer/customer_login.html')

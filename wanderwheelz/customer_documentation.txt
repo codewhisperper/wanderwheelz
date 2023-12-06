@@ -1,0 +1,70 @@
+Customer Module
+### Functions:
+
+1. **customer_login(request)**
+   - Renders the customer login page.
+
+2. **customer_logout(request)**
+   - Logs out the customer by deleting the user session.
+   - Renders the customer login page.
+
+3. **auth(request)**
+   - Handles user authentication.
+   - Retrieves user credentials from the request.
+   - Queries the database for the user with the provided email.
+   - If authentication is successful, sets user information in the session and redirects to the home page.
+   - Renders the login page with an error message if authentication fails.
+
+4. **get_home(request)**
+   - Renders the customer home page if the user is logged in.
+   - Otherwise, redirects to the login page.
+
+5. **customer_register(request)**
+   - Renders the customer registration page.
+
+6. **registration(request)**
+   - Handles customer registration.
+   - Retrieves user information from the registration form.
+   - Inserts a new entry into the `rentee` table.
+   - Renders the registration success page or the registration failure page if an error occurs.
+
+7. **search(request)**
+   - Renders the search page if the user is logged in.
+   - Otherwise, redirects to the login page.
+
+8. **search_results(request)**
+   - Retrieves search criteria from the form.
+   - Constructs a query to search for available rides based on criteria.
+   - Renders the search results page with the retrieved ride information.
+
+9. **confirm(request)**
+   - Retrieves information about a selected ride for booking confirmation.
+   - Renders the booking confirmation page.
+
+10. **book(request)**
+    - Handles the booking process for a ride.
+    - Updates the database to mark the ride as unavailable.
+    - Inserts a new entry into the `rental` table.
+    - Renders the booking confirmation page.
+
+11. **bookings(request)**
+    - Retrieves booking information for the logged-in user.
+    - Renders the customer bookings page.
+
+12. **manage(request)**
+    - Renders the customer management page if the user is logged in.
+    - Otherwise, redirects to the login page.
+
+13. **update(request)**
+    - Handles updating user information (password, mobile, email).
+    - Validates the old password before making updates.
+    - Renders the management page with a success message.
+
+14. **verify(request)**
+    - Renders the customer verification page if the user is logged in.
+    - Otherwise, redirects to the login page.
+
+15. **verification(request)**
+    - Handles customer verification information.
+    - Updates existing verification information or inserts a new entry into the `rentee_verification` table.
+    - Renders the verification page with a success message.
