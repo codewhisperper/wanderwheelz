@@ -40,13 +40,13 @@ VALUES
     ('admin4', 'adminpassword4', 'Admin Four', '789-012-3456'),
     ('admin5', 'adminpassword5', 'Admin Five', '234-567-8901');
 
-INSERT INTO ride (renter_id, ride_verification_id, availability_from, availability_to, model, number_plate, rate, capacity, color, branch, description,city)
+INSERT INTO ride (renter_id, ride_verification_id, availability_from, availability_to, model, number_plate, rate, capacity, color, branch, description)
 VALUES
-    (1, 1, '2023-11-18 08:00:00', '2023-11-18 18:00:00', 'Toyota Camry', 'ABC123', 50.00, 4, 'Blue', 'Main Branch', 'Comfortable sedan','Kitchener'),
-    (2, 3, '2023-11-19 10:00:00', '2023-11-19 20:00:00', 'Honda Accord', 'XYZ789', 45.00, 5, 'Red', 'Downtown Branch', 'Spacious and stylish','Waterloo'),
-    (4, 2, '2023-11-20 12:00:00', '2023-11-20 22:00:00', 'Ford Mustang', 'DEF456', 70.00, 2, 'Yellow', 'Suburb Branch', 'Sporty and fast','Kitchener'),
-    (3, 4, '2023-11-21 14:00:00', '2023-11-21 23:59:59', 'Chevrolet Suburban', 'GHI789', 90.00, 7, 'Black', 'Main Branch', 'Spacious SUV for family trips','Kitchener'),
-    (5, 5, '2023-11-22 16:00:00', '2023-11-22 23:00:00', 'Tesla Model S', 'JKL012', 100.00, 4, 'Silver', 'Downtown Branch', 'Luxury electric car','Cambridge');
+    (1, 1, '2023-11-18 08:00:00', '2023-11-18 18:00:00', 'Toyota Camry', 'ABC123', 50.00, 4, 'Blue', 'Main Branch', 'Comfortable sedan'),
+    (2, 3, '2023-11-19 10:00:00', '2023-11-19 20:00:00', 'Honda Accord', 'XYZ789', 45.00, 5, 'Red', 'Downtown Branch', 'Spacious and stylish'),
+    (4, 2, '2023-11-20 12:00:00', '2023-11-20 22:00:00', 'Ford Mustang', 'DEF456', 70.00, 2, 'Yellow', 'Suburb Branch', 'Sporty and fast'),
+    (3, 4, '2023-11-21 14:00:00', '2023-11-21 23:59:59', 'Chevrolet Suburban', 'GHI789', 90.00, 7, 'Black', 'Main Branch', 'Spacious SUV for family trips'),
+    (5, 5, '2023-11-22 16:00:00', '2023-11-22 23:00:00', 'Tesla Model S', 'JKL012', 100.00, 4, 'Silver', 'Downtown Branch', 'Luxury electric car');
 
 INSERT INTO rental (ride_id, rentee_id, rental_name, date)
 VALUES
