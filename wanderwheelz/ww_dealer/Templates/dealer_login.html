@@ -1,0 +1,45 @@
+{% extends 'dealer_base.html' %}
+
+{% block content %}
+<style>
+  /* Add CSS styles here */
+  .w3-display-container {
+    width: 30%;
+    float: left;
+  }
+
+  .right-container {
+    width: 70%;
+    float: left;
+  }
+
+  /* Clearfix to clear the float and prevent layout issues */
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+</style>
+
+{% if form.errors %}
+  <!-- Add your error handling code here if needed -->
+{% endif %}
+
+<div class="w3-display-container clearfix" style="height: 500px;">
+  <div class="w3-display-middle">
+    <form class="w3-container" action="/ww_dealer/auth/" method="POST">{% csrf_token %}
+      <label>Username:</label> <input class="w3-input" type="text" name="username"><br><br>
+      <label>Password:</label> <input class="w3-input" type="password" name="password"><br><br>
+      <input class="w3-btn w3-green" type="submit" value="Login">
+    </form><br><br>
+    <div class="w3-container">
+      <a class="w3-btn w3-red" href="/ww_dealer/dealer_register/">Register as Dealer</a>
+      <a class="w3-btn w3-teal" href="/">Home</a>
+    </div>
+  </div>
+</div>
+
+<div class="right-container clearfix">
+  <!-- Add content to the right-container if needed -->
+</div>
+{% endblock %}

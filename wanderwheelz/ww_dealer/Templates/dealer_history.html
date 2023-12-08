@@ -1,0 +1,31 @@
+{% extends 'dealer_base.html' %}
+
+{% block content %}
+<h1>Booking</h1>
+<table class="w3-table w3-striped w3-center w3-large">
+
+
+    <tr>
+      <th style="padding:30">Model </th>
+      <th style="padding:30">Rate  </th>
+      <th style="padding:30">Capacity</th>
+      <th style="padding:30">Rate  </th>
+      <th style="padding:30">Capacity</th>
+
+    </tr>
+    <!--
+    {% for book in request.session.bookings %}
+    <tr>
+      <td>{{book.Model}}</td>
+      <td>{{book.Rate}}</td>
+      <td>{{book.Capacity}}</td>
+      <td>{{book.Available_from}}</td>
+      <td>{{book.Available_to}}</td>
+      <td><form action = "/ww_customer/confirm/" method="post">
+    </tr>
+    
+    {% endfor %}
+    -->
+
+</table>
+{% endblock %}
