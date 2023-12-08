@@ -1,10 +1,13 @@
 {% extends 'customer/customer_base.html' %}
 {% block content %}
 {% load static %}
+
 <div class="w3-bar w3-large w3-black">
-  <div class="w3-bar-item w3-left w3-black">Customer Portal: {{user.username}}</div>
-  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/customer_portal/logout/">Logout</a>
-  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/customer_portal/manage/">Manage</a>
+  <div class="w3-bar-item w3-left w3-black">Customer Portal: {{request.session.user}}</div>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/ww_customer/customer_logout/">Logout</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/ww_customer/customer_manage/">Manage</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/ww_customer/my_bookings/">My Bookings</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/ww_customer/verify_user/">Verification</a>
 </div>
 
 <div class="w3-container w3-center w3-large" style="padding:20px;">Welcome Traveller, You shall drive the car of your dreams!</div>
@@ -12,7 +15,7 @@
 <div class="w3-display-container w3-center" style="height:500px;padding:20px;">
 <img src="{% static "images/car-pics.jpg" %}">
 <div class="w3-display-middle">
-<a class="w3-btn w3-red w3-xlarge" href="/customer_portal/search/"><b>Search for Rental Cars</b></a>
+<a class="w3-btn w3-red w3-xlarge" href="/ww_customer/search/?param_name={{ request }}"><b>Search for Rental Cars</b></a>
 </div>
 </div>
 {% endblock %}
