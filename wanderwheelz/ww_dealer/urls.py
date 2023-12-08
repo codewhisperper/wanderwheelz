@@ -10,5 +10,5 @@ urlpatterns = [
     path('create_ride/', ride_review),
     path('verification/',verification),
     path('history/',dealer_booking),
-    path('verification_form/',verification_form)
+    path('verification_form/',verification_form),
 ]
