@@ -1,0 +1,30 @@
+{% extends 'customer/customer_base.html' %}
+{% block content %}
+<div class="w3-bar">
+  <a class="w3-bar-item w3-right w3-btn w3-teal" href="/ww_customer/home/">Home</a>
+
+</div>
+
+<div class="w3-display-container"  style="height:1000px;">
+<div class="w3-display-middle">
+{% for message in messages%}
+        <div class = "alert-{{message.tags}} alert.dissmissible fade show" role = "alert">
+        <strong>Message:</strong>{{message}}
+        <button type ="submit" class = "close" data-dismiss = "alert" aria-label = "Close">
+        <span aria-hidden= "true">&times;</span>
+        </button>
+        </div>
+  {% endfor %}
+ <b> <h2>{{request.session.user}}'s Account Information</h2></b>
+
+<form class="w3-container" action="/ww_customer/update_user/" method="POST">{% csrf_token %}
+  <lable>Old Password : </lable><input class="w3-input" type="password" name="old_password"><br><br>
+  <lable>New Password : </lable><input class="w3-input" type="password" name="new_password"><br><br>
+  <lable>Email : </lable><input class="w3-input" type="email" name="email"><br><br>
+  <lable>Contact : </lable><input class="w3-input" type="tel" name="mobile"><br><br>
+  <input class="w3-btn w3-teal" type="submit" value="Update"><br><br>
+</form>
+
+</div>
+</div>
+{% endblock %}

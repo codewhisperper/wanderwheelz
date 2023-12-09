@@ -3,7 +3,6 @@ from wanderwheelz.db import *
 from django.http import JsonResponse
 
 # Create your views here.
-
 def dealer_login(request):
     return render(request, 'dealer_login.html')
 
@@ -158,10 +157,5 @@ def dealer_booking(request):
         print(e)
         return render(request,'dealer_register_fail.html')
     
-
-
-            
-
-
 
 

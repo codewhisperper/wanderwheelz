@@ -1,6 +1,7 @@
 from google.cloud.sql.connector import Connector
 import sqlalchemy
 
+
 def cursor_init():
     connector = Connector()
 

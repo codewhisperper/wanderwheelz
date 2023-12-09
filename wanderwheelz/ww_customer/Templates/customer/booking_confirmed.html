@@ -1,0 +1,21 @@
+{% extends 'customer/customer_base.html' %}
+{% block content %}
+
+<div class="w3-bar w3-large w3-black">
+  <div class="w3-bar-item w3-left w3-black">Customer Portal: {{user.username}}</div>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/ww_customer/home/">home</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/ww_customer/customer_logout/">Logout</a>
+</div>
+{% csrf_token %}
+
+<div class="w3-display-container" style="height:400px;">
+  <div class="w3-display-middle">
+<h3><b>Order Completed</b></h3>
+<b>Your Vehicle Order Has Been Processed!</b><br><br>
+<b>Total Rent :</b> ${{request.session.car.rate}}<br><br>
+<b>Vehicle :</b> {{request.session.car.name}}<br><br>
+<b>Booking date :</b> {{booking.date}} days<br><br>
+<b>Car-Dealer's Contact:</b> {{booking.phone}}<br><br>
+</div>
+</div>
+{% endblock %}
